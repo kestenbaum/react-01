@@ -1,0 +1,29 @@
+.header {
+  height: 60px;
+  background-color: #282c34;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  padding: 0 20px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #61dafb;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
