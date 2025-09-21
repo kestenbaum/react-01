@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import TodoItem from '../../components/TodoItem';
+import { useEffect, useState } from 'react';
+
 import { fetchTodos } from '../../api/todos';
+import TodoItem from '../../components/TodoItem';
 import type { Todo } from '../../types/todos';
 import styles from './TodoList.module.css';
 
@@ -17,17 +18,17 @@ const TodoList = () => {
 
   return (
     <div className={styles.todoList}>
-      {todos.map(todo => (
-        <TodoItem 
+      {todos.map((todo) => (
+        <TodoItem
           key={todo.id}
-          id={todo.id} 
-          completed={todo.completed} 
-          title={todo.title} 
+          id={todo.id}
+          completed={todo.completed}
+          title={todo.title}
           userId={todo.userId}
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default TodoList;
