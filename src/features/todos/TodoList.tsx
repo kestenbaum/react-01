@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchTodos } from '../../api/todos';
 import TodoItem from '../../components/TodoItem';
 import type { Todo } from '../../types/todos';
-import styles from './TodoList.module.css';
+
 
 const TodoList = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -17,7 +17,7 @@ const TodoList = () => {
   }, []);
 
   return (
-    <div className={styles.todoList}>
+    <div>
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
