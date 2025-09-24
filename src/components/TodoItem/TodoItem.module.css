@@ -3,5 +3,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #eee;
+  border: 1px solid #eee;
+  max-width: 250px;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  min-width: 20px;
+  min-height: 20px;
+  cursor: pointer;
+  padding: 2px;
+  margin-left: 15px;
 }
