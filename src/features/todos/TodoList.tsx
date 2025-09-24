@@ -4,7 +4,6 @@ import { fetchTodos } from '../../api/todos';
 import TodoItem from '../../components/TodoItem';
 import type { Todo } from '../../types/todos';
 
-
 const TodoList = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
