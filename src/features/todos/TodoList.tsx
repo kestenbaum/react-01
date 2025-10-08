@@ -1,19 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { fetchTodos } from '../../api/todos';
 import TodoItem from '../../components/TodoItem';
-import type { Todo } from '../../types/todos';
+import type { AppDispatch, RootState } from '../../store';
+import {
+  getTodos,
+  selectTodos,
+  selectTodosError,
+  selectTodosStatus,
+} from '../../store/slice/todoSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-const TodoList = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+export const TodoList = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const todos = useSelector((state: RootState) => selectTodos(state));
+  const status = useSelector((state: RootState) => selectTodosStatus(state));
+  const error = useSelector((state: RootState) => selectTodosError(state));
 
   useEffect(() => {
-    const loadTodos = async () => {
-      const data = await fetchTodos();
-      setTodos(data);
-    };
-    loadTodos();
-  }, []);
+    if (status === 'idle') {
+      dispatch(getTodos());
+    }
+  }, [dispatch, status]);
+
+  if (status === 'loading') return <p>Loading...</p>;
+  if (status === 'failed') return <p>Error: {error}</p>;
 
   return (
     <div>
@@ -21,13 +31,11 @@ const TodoList = () => {
         <TodoItem
           key={todo.id}
           id={todo.id}
-          completed={todo.completed}
           title={todo.title}
+          completed={todo.completed}
           userId={todo.userId}
         />
       ))}
     </div>
   );
 };
-
-export default TodoList;
