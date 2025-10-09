@@ -1,4 +1,4 @@
-import TodoList from './features/todo/TodoList';
+import TodoPage from './pages/TodoPage';
 import Header from './widgets/Header';
 import Wrapper from './widgets/Wrapper';
 
@@ -7,7 +7,7 @@ function App() {
     <>
       <Header />
       <Wrapper>
-        <TodoList />
+        <TodoPage />
       </Wrapper>
     </>
   );
