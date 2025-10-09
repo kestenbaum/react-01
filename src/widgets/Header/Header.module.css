@@ -1,5 +1,4 @@
 .header {
-  height: 40px;
   background-color: #282c34;
   width: 100%;
   position: fixed;
@@ -19,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 40px;
 }
 
 .logo {
