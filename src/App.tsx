@@ -1,6 +1,6 @@
-import Header from './components/Header';
-import Wrapper from './components/Wrapper';
-import TodoList from './features/todos/TodoList';
+import TodoList from './features/todo/TodoList';
+import Header from './widgets/Header';
+import Wrapper from './widgets/Wrapper';
 
 function App() {
   return (

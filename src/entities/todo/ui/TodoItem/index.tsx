@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import { deleteTodo } from '../../api/todos';
-import type { Todo } from '../../types/todos';
+import type { Todo } from '../../../../entities/todo/model';
 import styles from './TodoItem.module.css';
 
-const TodoItem = ({ id, completed, title }: Todo) => {
+const TodoItem = ({ completed, title }: Todo) => {
   const [checked, setChecked] = useState<boolean>(completed);
 
   return (
@@ -15,9 +14,7 @@ const TodoItem = ({ id, completed, title }: Todo) => {
         checked={checked}
         onChange={() => setChecked(!checked)}
       />
-      <button onClick={() => deleteTodo(id)} className={styles.deleteBtn}>
-        X
-      </button>
+      <button className={styles.deleteBtn}>X</button>
     </div>
   );
 };

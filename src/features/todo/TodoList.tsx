@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import TodoItem from '../../components/TodoItem';
+import TodoItem from '../../entities/todo/ui/TodoItem';
 import type { AppDispatch, RootState } from '../../store';
 import {
   getTodos,
@@ -10,7 +10,7 @@ import {
 } from '../../store/slice/todoSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const TodoList = () => {
+const TodoList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const todos = useSelector((state: RootState) => selectTodos(state));
   const status = useSelector((state: RootState) => selectTodosStatus(state));
@@ -39,3 +39,5 @@ export const TodoList = () => {
     </div>
   );
 };
+
+export default TodoList;

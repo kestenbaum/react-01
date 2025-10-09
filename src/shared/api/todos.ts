@@ -1,4 +1,4 @@
-import type { Todo } from '../types/todos';
+import type { Todo } from '../shared/types/todos';
 import { api } from './instance';
 
 export async function fetchTodos() {
@@ -7,6 +7,6 @@ export async function fetchTodos() {
 }
 
 export async function deleteTodo(id: number) {
- const { data } = await api.delete(`/todos/${id}`);
- return data;
+  const { data } = await api.delete(`/todos/${id}`);
+  return data;
 }
