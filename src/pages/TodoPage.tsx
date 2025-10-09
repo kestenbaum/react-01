@@ -1,9 +1,12 @@
 import TodoList from '../features/todo/TodoList';
+import Container from '../widgets/Container';
 
 const TodoPage = () => {
   return (
     <div>
-      <TodoList />
+      <Container>
+        <TodoList />
+      </Container>
     </div>
   );
 };
