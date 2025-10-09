@@ -10,6 +10,14 @@ const Header = () => {
           <Link className={styles.logo} to="/">
             Logo
           </Link>
+          <menu>
+            <Link className={styles.link} to="/">
+              Todos
+            </Link>
+            <Link className={styles.link} to="/users">
+              Users
+            </Link>
+          </menu>
         </div>
       </Container>
     </header>
