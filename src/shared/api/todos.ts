@@ -1,12 +1,25 @@
 import type { Todo } from '../../entities/todo/model';
 import { api } from './instance';
 
-export async function fetchTodos() {
-  const { data } = await api.get<Todo[]>('/todos');
-  return data;
-}
+export const fetchTodos = async (
+  page: number,
+  limit: number,
+  sort?: string,
+  filter?: string,
+): Promise<{ data: Todo[]; total: number }> => {
+  const params = new URLSearchParams({
+    _page: String(page),
+    _limit: String(limit),
+    ...(sort ? { _sort: sort } : {}),
+    ...(filter ? { _filter: filter } : {}),
+  });
 
-export async function deleteTodo(id: number) {
-  const { data } = await api.delete(`/todos/${id}`);
-  return data;
-}
+  const res = await api.get(`/todos?${params}`);
+
+  if (res.status !== 200) throw new Error(`Error status: ${res.status}`);
+
+  const total = Number(res.headers['x-total-count']) || 0;
+  const data = res.data;
+
+  return { data, total };
+};
