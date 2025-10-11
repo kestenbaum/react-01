@@ -5,6 +5,7 @@ import type { AppDispatch, RootState } from '../../store';
 import {
   getUsers,
   selectedUsers,
+  selectedUsersError,
   selectedUsersStatus,
 } from '../../store/slice/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +14,7 @@ const UserList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const users = useSelector((state: RootState) => selectedUsers(state));
   const status = useSelector((state: RootState) => selectedUsersStatus(state));
+  const error = useSelector((state: RootState) => selectedUsersError(state));
 
   useEffect(() => {
     if (status === 'idle') {
@@ -21,7 +23,7 @@ const UserList = () => {
   }, [status, dispatch]);
 
   if (status === 'loading') return <p>Loading...</p>;
-  if (status === 'failed') return <p>Error loading users</p>;
+  if (status === 'failed') return <p>Error {error}</p>;
 
   return (
     <div>
