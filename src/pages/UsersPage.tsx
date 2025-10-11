@@ -1,5 +1,14 @@
+import UserList from '../features/user/UserList';
+import Container from '../widgets/Container';
+
 const UsersPage = () => {
-  return <div>users</div>;
+  return (
+    <div>
+      <Container>
+        <UserList />
+      </Container>
+    </div>
+  );
 };
 
 export default UsersPage;

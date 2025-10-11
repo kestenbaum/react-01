@@ -1,4 +1,4 @@
-import type { Todo } from '../shared/types/todos';
+import type { Todo } from '../../entities/todo/model';
 import { api } from './instance';
 
 export async function fetchTodos() {
