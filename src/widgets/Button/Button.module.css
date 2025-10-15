@@ -1,0 +1,17 @@
+.btn {
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: '4px';
+}
+
+.active {
+  padding: 6px 12px;
+  cursor: not-allowed;
+  background-color: #007acc;
+  color: #fff;
+  border: 1px solid #ccc;
+  border-radius: '4px';
+}

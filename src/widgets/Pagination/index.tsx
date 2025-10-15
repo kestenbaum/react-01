@@ -4,6 +4,7 @@ import {
   selectedTodosTotal,
 } from '../../store/slice/todoSlice';
 import { setPage } from '../../store/slice/todoSlice';
+import Button from '../Button';
 import styles from '../Pagination/Pagination.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -51,21 +52,14 @@ const Pagination = () => {
     <div className={styles.wrapper}>
       {getVisiblePages(page, pages).map((num, index) =>
         typeof num === 'number' ? (
-          <button
+          <Button
             key={index}
             disabled={page === num}
             onClick={() => dispatch(setPage(num))}
-            style={{
-              padding: '6px 12px',
-              cursor: page === num ? 'not-allowed' : 'pointer',
-              backgroundColor: page === num ? '#007acc' : '#f0f0f0',
-              color: page === num ? '#fff' : '#000',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-            }}
+            active={num === page}
           >
             {num}
-          </button>
+          </Button>
         ) : (
           <span key={index} style={{ padding: '6px 12px' }}>
             {num}
