@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-import UserCard from '../../entities/user/ui';
-import type { AppDispatch, RootState } from '../../store';
+import type { AppDispatch, RootState } from '../../app/store';
 import {
   getUsers,
   selectedUsers,
   selectedUsersError,
   selectedUsersStatus,
-} from '../../store/slice/userSlice';
+} from '../../app/store/slice/userSlice';
+import UserCard from '../../entities/user/ui';
 import { useDispatch, useSelector } from 'react-redux';
 
 const UserList = () => {
