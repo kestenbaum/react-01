@@ -1,11 +1,11 @@
-import Button from '../../entities/todo/ui/Button';
-import { getVisiblePages } from '../../shared/lib/getVisiblePages';
-import type { AppDispatch } from '../../store';
+import type { AppDispatch } from '../../app/store';
 import {
   selectedTodosPage,
   selectedTodosTotal,
-} from '../../store/slice/todoSlice';
-import { setPage } from '../../store/slice/todoSlice';
+} from '../../app/store/slice/todoSlice';
+import { setPage } from '../../app/store/slice/todoSlice';
+import Button from '../../entities/todo/ui/Button';
+import { getVisiblePages } from '../../shared/lib/getVisiblePages';
 import styles from '../Pagination/Pagination.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 

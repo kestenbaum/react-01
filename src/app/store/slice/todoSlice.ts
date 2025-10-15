@@ -1,5 +1,5 @@
-import type { Todo } from '../../entities/todo/model';
-import { fetchTodos } from '../../shared/api/todos';
+import type { Todo } from '../../../entities/todo/model';
+import { fetchTodos } from '../../../shared/api/todos';
 import type { RootState } from '../index';
 import {
   type PayloadAction,

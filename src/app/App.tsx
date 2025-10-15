@@ -1,7 +1,7 @@
-import TodoPage from './pages/TodoPage';
-import UsersPage from './pages/UsersPage';
-import Header from './widgets/Header';
-import Wrapper from './widgets/Wrapper';
+import TodoPage from '../pages/TodoPage';
+import UsersPage from '../pages/UsersPage';
+import Header from '../widgets/Header';
+import Wrapper from '../widgets/Wrapper';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {

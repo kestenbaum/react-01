@@ -1,5 +1,5 @@
-import type { IUser } from '../../entities/user/model';
-import { fetchUsers } from '../../shared/api/users';
+import type { IUser } from '../../../entities/user/model';
+import { fetchUsers } from '../../../shared/api/users';
 import type { RootState } from '../index';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 

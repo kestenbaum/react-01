@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-import type { AppDispatch } from '../../store';
+import type { AppDispatch } from '../../app/store/index';
 import {
   getTodos,
   selectedTodos,
   selectedTodosError,
   selectedTodosPage,
   selectedTodosStatus,
-} from '../../store/slice/todoSlice';
+} from '../../app/store/slice/todoSlice';
 import Pagination from '../../widgets/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 
