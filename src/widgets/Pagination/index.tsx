@@ -1,10 +1,10 @@
+import Button from '../../entities/todo/ui/Button';
 import type { AppDispatch } from '../../store';
 import {
   selectedTodosPage,
   selectedTodosTotal,
 } from '../../store/slice/todoSlice';
 import { setPage } from '../../store/slice/todoSlice';
-import Button from '../Button';
 import styles from '../Pagination/Pagination.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
