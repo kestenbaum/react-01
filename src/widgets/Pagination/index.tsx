@@ -1,5 +1,5 @@
 import Button from '../../entities/todo/ui/Button';
-import { getVisiblePages } from '../../shared/api/lib/getVisiblePages';
+import { getVisiblePages } from '../../shared/lib/getVisiblePages';
 import type { AppDispatch } from '../../store';
 import {
   selectedTodosPage,
