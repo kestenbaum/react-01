@@ -1,4 +1,5 @@
 import Button from '../../entities/todo/ui/Button';
+import { getVisiblePages } from '../../shared/api/lib/getVisiblePages';
 import type { AppDispatch } from '../../store';
 import {
   selectedTodosPage,
@@ -14,57 +15,20 @@ const Pagination = () => {
   const total = useSelector(selectedTodosTotal);
   const pages = total > 0 ? Math.ceil(total / 10) : 1;
 
-  const getVisiblePages = (
-    currentPage: number,
-    totalPages: number,
-    windowSize = 5,
-  ) => {
-    const pages: (number | string)[] = [];
-    const half = Math.floor(windowSize / 2);
-
-    let start = Math.max(2, currentPage - half);
-    let end = Math.min(totalPages - 1, currentPage + half);
-
-    if (currentPage <= half + 1) {
-      start = 2;
-      end = Math.min(totalPages - 1, windowSize);
-    } else if (currentPage + half >= totalPages) {
-      start = Math.max(2, totalPages - windowSize + 1);
-      end = totalPages - 1;
-    }
-
-    pages.push(1);
-
-    if (start > 2) pages.push('...');
-
-    for (let i = start; i <= end; i++) {
-      pages.push(i);
-    }
-
-    if (end < totalPages - 1) pages.push('...');
-
-    if (totalPages > 1) pages.push(totalPages);
-
-    return pages;
-  };
-
   return (
     <div className={styles.wrapper}>
-      {getVisiblePages(page, pages).map((num, index) =>
-        typeof num === 'number' ? (
-          <Button
-            key={index}
-            disabled={page === num}
-            onClick={() => dispatch(setPage(num))}
-            active={num === page}
-          >
-            {num}
-          </Button>
-        ) : (
-          <span key={index} style={{ padding: '6px 12px' }}>
-            {num}
-          </span>
-        ),
+      {getVisiblePages(page, pages).map(
+        (num, index) =>
+          typeof num === 'number' && (
+            <Button
+              key={index}
+              disabled={page === num}
+              onClick={() => dispatch(setPage(num))}
+              active={num === page}
+            >
+              {num}
+            </Button>
+          ),
       )}
     </div>
   );
