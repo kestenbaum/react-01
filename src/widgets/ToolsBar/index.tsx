@@ -1,7 +1,13 @@
+import React, { type FC } from 'react';
+
 import styles from '../ToolsBar/ToolsBar.module.css';
 
-const ToolsBar = () => {
-  return <div className={styles.wrapper}>ToolsBar</div>;
+interface IToolsBar {
+  children: React.ReactNode;
+}
+
+const ToolsBar: FC<IToolsBar> = ({ children }) => {
+  return <div className={styles.wrapper}>{children}</div>;
 };
 
 export default ToolsBar;
