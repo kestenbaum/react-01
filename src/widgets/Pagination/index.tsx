@@ -4,7 +4,7 @@ import {
   selectedTodosTotal,
 } from '../../app/store/slice/todoSlice';
 import { setPage } from '../../app/store/slice/todoSlice';
-import Button from '../../entities/todo/ui/Button';
+import Button from '../../entities/todo/ui/TodoButton';
 import { getVisiblePages } from '../../shared/lib/getVisiblePages';
 import styles from '../Pagination/Pagination.module.css';
 import { useDispatch, useSelector } from 'react-redux';

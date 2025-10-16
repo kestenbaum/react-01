@@ -1,6 +1,6 @@
 import { type ButtonHTMLAttributes, type FC } from 'react';
 
-import styles from '../Button/Button.module.css';
+import styles from '../TodoButton/TodoButton.module.css';
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string | number;
