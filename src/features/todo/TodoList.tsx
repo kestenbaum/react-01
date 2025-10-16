@@ -9,6 +9,7 @@ import {
   selectedTodosStatus,
 } from '../../app/store/slice/todoSlice';
 import Pagination from '../../widgets/Pagination';
+import ToolsBar from '../../widgets/ToolsBar';
 import { useDispatch, useSelector } from 'react-redux';
 
 const TodoList = () => {
@@ -27,6 +28,7 @@ const TodoList = () => {
 
   return (
     <div>
+      <ToolsBar />
       {todos.map((todo) => (
         <div
           key={todo.id}
