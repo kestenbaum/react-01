@@ -26,7 +26,7 @@ const UserList = () => {
   if (status === 'failed') return <p>Error {error}</p>;
 
   return (
-    <div>
+    <section>
       {users.map((user) => (
         <UserCard
           key={user.id}
@@ -40,7 +40,7 @@ const UserList = () => {
           company={user.company}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

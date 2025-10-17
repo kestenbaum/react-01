@@ -1,12 +1,6 @@
-import React, { type FC } from 'react';
-
 import styles from '../ToolsBar/ToolsBar.module.css';
 
-interface IToolsBar {
-  children: React.ReactNode;
-}
-
-const ToolsBar: FC<IToolsBar> = ({ children }) => {
+const ToolsBar = ({ children }: { children: React.ReactNode }) => {
   return <div className={styles.wrapper}>{children}</div>;
 };
 

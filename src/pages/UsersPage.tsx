@@ -3,11 +3,11 @@ import Container from '../widgets/Container';
 
 const UsersPage = () => {
   return (
-    <div>
+    <section>
       <Container>
         <UserList />
       </Container>
-    </div>
+    </section>
   );
 };
 

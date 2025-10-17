@@ -3,11 +3,11 @@ import Container from '../widgets/Container';
 
 const TodoPage = () => {
   return (
-    <div>
+    <section>
       <Container>
         <TodoList />
       </Container>
-    </div>
+    </section>
   );
 };
 
