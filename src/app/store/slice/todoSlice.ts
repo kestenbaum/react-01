@@ -58,8 +58,8 @@ export const todoSlice = createSlice({
     setPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
     },
-    setLimit(state, payload: PayloadAction<number>) {
-      state.limit = payload.payload;
+    setLimit(state, action: PayloadAction<number>) {
+      state.limit = action.payload;
     },
     setSort(state, action: PayloadAction<string | undefined>) {
       state.sort = action.payload;
