@@ -52,7 +52,7 @@ const initialState: IState = {
 };
 
 export const todoSlice = createSlice({
-  name: 'users',
+  name: 'todos',
   initialState,
   reducers: {
     setPage(state, action: PayloadAction<number>) {

@@ -26,7 +26,7 @@ const TodoList = () => {
   const total = useSelector(selectedTodosTotal);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault;
+    event.preventDefault();
     dispatch(setFilter(event.target.value));
   };
 
