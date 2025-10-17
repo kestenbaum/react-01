@@ -31,7 +31,7 @@ interface IState {
   data: Todo[];
   filterData: Todo[];
   total: number;
-  status: 'idle' | 'loading' | 'successed' | 'failded';
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
   page: number;
   limit: number;
@@ -82,12 +82,12 @@ export const todoSlice = createSlice({
         (state, action: PayloadAction<{ data: Todo[]; total: number }>) => {
           state.data = action.payload.data;
           state.filterData = action.payload.data;
-          state.status = 'successed';
+          state.status = 'succeeded';
           state.total = action.payload.total;
         },
       )
       .addCase(getTodos.rejected, (state, action) => {
-        state.status = 'failded';
+        state.status = 'failed';
         state.error = action.payload as string;
       });
   },
