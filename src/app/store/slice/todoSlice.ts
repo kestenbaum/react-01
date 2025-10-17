@@ -29,6 +29,7 @@ export const getTodos = createAsyncThunk(
 
 interface IState {
   data: Todo[];
+  filterData: Todo[];
   total: number;
   status: 'idle' | 'loading' | 'successed' | 'failded';
   error: string | null;
@@ -40,6 +41,7 @@ interface IState {
 
 const initialState: IState = {
   data: [],
+  filterData: [],
   status: 'idle',
   total: 0,
   error: null,
@@ -62,8 +64,11 @@ export const todoSlice = createSlice({
     setSort(state, action: PayloadAction<string | undefined>) {
       state.sort = action.payload;
     },
-    setFilter(state, action: PayloadAction<string | undefined>) {
+    setFilter(state, action: PayloadAction<string>) {
       state.filter = action.payload;
+      state.filterData = state.data.filter((todo) =>
+        todo.title.toLowerCase().includes(action.payload.toLowerCase()),
+      );
     },
   },
   extraReducers: (builder) => {
@@ -76,6 +81,7 @@ export const todoSlice = createSlice({
         getTodos.fulfilled,
         (state, action: PayloadAction<{ data: Todo[]; total: number }>) => {
           state.data = action.payload.data;
+          state.filterData = action.payload.data;
           state.status = 'successed';
           state.total = action.payload.total;
         },
@@ -92,6 +98,7 @@ export const selectedTodosStatus = (state: RootState) => state.todo.status;
 export const selectedTodosError = (state: RootState) => state.todo.error;
 export const selectedTodosPage = (state: RootState) => state.todo.page;
 export const selectedTodosTotal = (state: RootState) => state.todo.total;
+export const selectedFiltersTodos = (state: RootState) => state.todo.filterData;
 
 export const { setFilter, setLimit, setPage, setSort } = todoSlice.actions;
 export default todoSlice.reducer;
